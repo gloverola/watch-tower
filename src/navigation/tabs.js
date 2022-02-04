@@ -1,5 +1,4 @@
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import {Home, Portfolio, Market, Profile} from '../screens';
@@ -10,8 +9,9 @@ const Tab = createBottomTabNavigator();
 const Tabs = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        style: {
+      screenOptions={{
+        headerShown: false,
+        tabBarStyle: {
           backgroundColor: COLORS.primary,
           borderTopColor: 'transparent',
         },

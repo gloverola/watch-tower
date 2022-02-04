@@ -1,10 +1,12 @@
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import {enableScreens} from 'react-native-screens';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 
 import Tabs from './navigation/tabs';
 
-const Stack = createStackNavigator();
+enableScreens();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
@@ -12,9 +14,14 @@ const App = () => {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
+          gestureEnabled: false,
         }}
-        initialRouteName={'MainLayout'}>
-        <Stack.Screen name="MainLayout" component={Tabs} />
+        initialRouteName={'Home'}>
+        <Stack.Screen
+          options={{headerShown: false, headerMode: 'none'}}
+          name="MainLayout"
+          component={Tabs}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
